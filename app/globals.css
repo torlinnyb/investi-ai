@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
 }
 
 @theme inline {
@@ -12,15 +12,57 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+/* Hjälpklasser */
+.container-default {
+  max-width: 1280px;
+}
+
+/* Typografi */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+/* Knappar */
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-black text-white px-6 py-3 font-medium transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-full border border-[#e5e7eb] bg-white text-[#0a0a0a] px-6 py-3 font-medium transition-colors hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black;
+}
+
+/* Kort */
+.card {
+  @apply bg-white rounded-2xl border border-[#e5e7eb] shadow-[0_6px_24px_rgba(0,0,0,0.06)];
+}
+
+/* Fokusringar */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2;
+}
+
+/* Animationer */
+.transition-smooth {
+  @apply transition-all duration-200 ease-in-out;
 }
